@@ -72,13 +72,21 @@ def create_shadow(folder_id: str, file_ids: list[str] | None = None) -> str:
     if not shadow_folder:
         shadow_folder = folder.create_subfolder(shadow_name)
 
+    # Get existing files in shadow to avoid duplicates
+    existing_shadow_files = set()
+    if shadow_folder:
+        for item in shadow_folder.get_items():
+            if item.type == "file":
+                existing_shadow_files.add(item.name)
+
     if file_ids:
         for file_id in file_ids:
             file = client.file(file_id)
-            file.copy(parent_folder=shadow_folder)
+            if file.name not in existing_shadow_files:
+                file.copy(parent_folder=shadow_folder)
     else:
         for item in folder.get_items():
-            if item.type == "file":
+            if item.type == "file" and item.name not in existing_shadow_files:
                 item.copy(parent_folder=shadow_folder)
 
     return shadow_folder.id
