@@ -100,7 +100,9 @@ def write_memory(folder_id: str, data: dict) -> None:
                 memory_file = item
                 break
         if memory_file:
-            memory_file.update_contents(memory_json.encode("utf-8"))
+            memory_file.update_contents_with_stream(
+                io.BytesIO(memory_json.encode("utf-8"))
+            )
         else:
             folder.upload_stream(
                 io.BytesIO(memory_json.encode("utf-8")), ".agent_memory.json"
