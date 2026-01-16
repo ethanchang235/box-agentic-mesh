@@ -16,11 +16,11 @@ Box Agentic Mesh adds three layers to any Box folder:
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                    Box Folder                           │
-│  ┌─────────────────┐  ┌─────────────────────────────┐  │
-│  │ Agentic Memory  │  │     Reasoning Ledger        │  │
-│  │  (.agent_memory │  │  (.reasoning_ledger.log)    │  │
-│  │      .json)     │  │                             │  │
-│  └─────────────────┘  └─────────────────────────────┘  │
+│  ┌─────────────────┐  ┌─────────────────────────────┐   │
+│  │ Agentic Memory  │  │     Reasoning Ledger        │   │
+│  │  (.agent_memory │  │  (.reasoning_ledger.log)    │   │
+│  │      .json)     │  │                             │   │
+│  └─────────────────┘  └─────────────────────────────┘   │
 │                        ┌───────────────────────────┐    │
 │                        │      [SHADOW]/            │    │
 │                        │   (Safe Staging Area)     │    │
