@@ -24,6 +24,11 @@ Usage:
     write_memory("folder_id", {"task": "analysis", "status": "in_progress"})
 """
 
+import os
+import sys
+from dotenv import load_dotenv
+
+load_dotenv()
 import json
 import io
 from boxsdk import Client, OAuth2
